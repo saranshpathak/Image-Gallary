@@ -28,7 +28,12 @@ const Collections = ({ navigation }) => {
           {collections.map((item, index) => (
             <Pressable
               style={styles.collectionImage}
-              android_ripple={{ color: 'gray', borderless: true }}>
+              android_ripple={{ color: 'gray', borderless: true }}
+              onPress={() => {
+                navigation.navigate('CollectionImages', {
+                  collectionIndex: index,
+                });
+              }}>
               <Image
                 source={{ uri: `https://picsum.photos/seed/${index + 1}/300` }}
                 style={styles.img}
@@ -72,8 +77,8 @@ const styles = StyleSheet.create({
   collectionImage: {
     height: 140,
     width: '48%',
-    borderColor: 'black',
-    borderWidth: 1,
+    //borderColor: 'black',
+    //borderWidth: 1,
     borderRadius: 10,
     marginBottom: 5,
   },
